@@ -5,14 +5,47 @@ function Book(title, author, pages, status) {
     this.author = author;
     this.pages = pages;
     this.status = status;
-    this.info = function () {
-      return `the book is ${this.title}, the author is ${this.author} with ${this.pages} pages`
+}
+
+function addBookToLibrary () {
+    let book = {}
+    book.title = prompt('Enter book title');
+    book.author = prompt('Enter Author name');
+    book.pages = prompt('Enter number of pages');
+    book.status = prompt('Status');
+
+    myLibrary.push(book);
+    console.log(myLibrary);
+}
+for (let i = 0; i < 3; i++) {
+    addBookToLibrary()
+}
+
+function display () {
+    for (const book of myLibrary) {
+        const bookInfo = document.createElement('div');
+        bookInfo.setAttribute('class', 'books');
+        const shelf = document.querySelector('#shelf').appendChild(bookInfo);
+
+        const title = document.createElement('div');
+        bookInfo.appendChild(title)
+        title.textContent = 'Title: '+ book.title;
+
+        const author = document.createElement('div');
+        bookInfo.appendChild(author)
+        author.textContent = 'Author: ' + book.author;
+
+        const pages = document.createElement('div');
+        bookInfo.appendChild(pages)
+        pages.textContent = 'Pages: ' + book.pages;
+
+        const status = document.createElement('div');
+        bookInfo.appendChild(status)
+        status.textContent = 'Status: ' + book.status;
+
+        
     }
 }
-function addBookToLibrary() {
-  newBook = new Book(prompt('Enter Book Title'), prompt("Enter author's name"), prompt("Enter number of pages"), prompt("Read or unread, Enter 1 for read 2 for unread"));
-  myLibrary.push(newBook);
-}
-addBookToLibrary()
-console.log(myLibrary[0])
+display()
+
 
