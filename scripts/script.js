@@ -1,27 +1,25 @@
-let myLibrary = []; 
+let myLibrary = [];
 
-function Book(title, author, pages, status) {
-    this.title = title;
-    this.author = author;
+function Book (title,author,pages,isRead) {
+    this.title =  title;
+    this.author = author
     this.pages = pages;
-    this.status = status;
+    this.isRead = isRead
 }
 
 function addBookToLibrary () {
-    let book = {}
-    book.title = prompt('Enter book title');
-    book.author = prompt('Enter Author name');
-    book.pages = prompt('Enter number of pages');
-    book.status = prompt('Status');
+    var title = document.getElementById('title');
+    var author = document.getElementById('author');
+    var pages = document.getElementById('pages');
+    var isRead = document.getElementById('isRead');
 
+
+    var book = new Book(title.value, author.value, pages.value, isRead.value);
     myLibrary.push(book);
-    console.log(myLibrary);
-}
-for (let i = 0; i < 3; i++) {
-    addBookToLibrary()
+
 }
 
-function display () {
+function displayBook () {
     for (const book of myLibrary) {
         const bookInfo = document.createElement('div');
         bookInfo.setAttribute('class', 'books');
@@ -45,7 +43,26 @@ function display () {
 
         
     }
+    myLibrary = []
+};
+
+form = document.getElementById('myForm');
+function handleForm(event) {
+    event.preventDefault();
+
 }
-display()
+form.addEventListener('submit', handleForm);
 
 
+displayForm = () => {
+    document.getElementById('form-container').style.display = 'block';
+}
+
+closeForm = () => {
+    document.getElementById('form-container').style.display = 'none';
+}
+
+document.getElementById('addBook').addEventListener('click', displayForm);
+document.getElementById('closeForm').addEventListener('click', closeForm);
+document.getElementById('submitBtn').addEventListener('click', addBookToLibrary);
+document.getElementById('submitBtn').addEventListener('click', displayBook);

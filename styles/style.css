@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,300&family=Rubik+Dirt&family=Silkscreen:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,300&family=Rubik+Dirt&family=Silkscreen:wght@700&family=Ubuntu&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -6,59 +9,228 @@
 #container {
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('/images/alfons-morales-YLSwjSy7stw-unsplash.jpg');
+  background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('/images/susan-q-yin-2JIvboGLeho-unsplash\ \(2\).jpg');
   background-repeat: none;
   background-size: 100%;
   display: grid;
-  grid-template: 1fr 4fr 1fr/ 1fr;
-}#nav {
-  font-size: 2rem;
-  color: aliceblue;
+  grid-template: 1fr 1fr 6fr/ 1fr;
+  
+}
+#nav {
+  grid-row: 1/2;
+  grid-column: 1/2;
+  color: #fff;
   display: grid;
+  grid-template: 1fr/ 4fr 1fr;
   align-items: center;
   justify-content: center;
+  background-color: rgba(255,255,255,0.2);
+  padding-left: 20px;
+  border-bottom: 1px solid #999;
+}
+#nav-left {
+  font-size: 2rem;
+  font-weight: 900;
+  font-family: 'Silkscreen', cursive;
+}
+#nav-right {
+  display: grid;
+  grid-template: 1fr / repeat(2, 1fr);
+  font-weight: 900;
+}
+#nav-right div a {
+  text-decoration: none;
+  color: #fff;
+  font-family: 'Ubuntu', sans-serif;
 }
 #content {
+  grid-row: 3/4;
+  grid-column: 1/2;
   display: grid;
-  grid-template: 1fr 5fr 1fr/ 1fr 3fr 1fr;
+  grid-template: 1fr/ 1fr 3fr 1fr;
   align-items: center;
   justify-items: center;
 
 }
-#new-book {
-  grid-row: 3/4;
-  grid-column: 2/3;
+
+#newBook {
+  grid-row: 2/3;
+  grid-column: 1/2;
   display: grid;
   align-items: center;
   justify-items: center;
-  width: 20%;
-  height: 35%;
+}
+#addBook {
+  width: 10%;
+  height: 50%;
   border-radius: 5px;
   border: none;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1rem;
   font-weight: 900;
+  background-color: #fff;
+  color: #333;
+
 }
 #shelf {
   width: 95%;
   height: 100%;
-  grid-row: 2/3;
+  grid-row: 1/2;
   grid-column: 1/4;
   display: grid;
   gap: 10px;
-  grid-template: 1fr / repeat(auto-fit, minmax(150px, 0.5fr));
+  grid-template: 1fr/ repeat(5, minmax(150px, 0.20fr));
   padding: 20px;
-  background-color: rgba(0,0,0,0.7);
-  
+  border-radius: 10px;
 }
 .books {
   display: grid;
   grid-template: repeat(4, 1fr) / 1fr;
   padding: 20px;
   color: #fff;
-  font-size: 16px;
-  font-weight: 500;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 14px;
+  font-weight: 900;
   outline: 1px solid #999;
-  
+  background-color: rgba(0,0,0,0.3);
+  border-radius: 5px;
+  height: 70%;
   
 }
+#form-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  background-color: rgb(236, 228, 228);
+  padding: 1rem;
+  font-family: 'Ubuntu', sans-serif;
+
+}
+form {  
+  width: 500px;
+  height: 400px;
+  padding: .5rem;
+  display: grid;
+  border-radius: 2px;
+}
+h2, h4 {
+  text-align: center;
+}
+.info {
+  display: grid;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.info input {
+  width: 100%;
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding-left: 10px;
+  border: none;
+}
+.info label {
+  margin-top: 10px;
+
+}
+#book-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+}
+#book-status input {
+  margin-right: 5px;
+}
+#form-submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#submitBtn, #closeForm {
+  width: 30%;
+  height: 70%;
+  margin: .5rem;
+  font-size: 16px;
+  font-weight: 900;
+}
+#submitBtn {
+  background-color: rgb(97, 174, 236);
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+}
+#closeForm {
+  background-color: rgb(212, 84, 84);
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+}
 #footer {
+
+}
+
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 17px;
+  margin-right: 4px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  width: 13px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(13px);
+  -ms-transform: translateX(13px);
+  transform: translateX(13px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 17px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }

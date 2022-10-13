@@ -10,11 +10,46 @@
 <body>
   <div id="container">
     <div id="nav">
-      <div class="nav" id="logo">MyBrary</div>
-    </div>
-    <div id="content">
+      <div id="nav-left">
+        <div id="logo">MyBrary</div>
+      </div>
+      <div id="nav-right">
+        <div id="home"><a href="#">Home</a></div>
+        <div id="trends"><a href="#">Trends</a></div>
+      </div>
+    </div> 
+    <div id="newBook"><button id="addBook">+ New Book</button></div>
+    <div id="content"> 
       <div id="shelf"></div>
-      <button id="new-book">New Book</button>
+        <div id="form-container">
+          <h2 id="form-title">Add book to personal Library </h2>
+          <form id="myForm" name="myForm">
+              <div class="info" id="book-title">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" required>
+              </div>
+              <div class="info" id="book-author">
+                <label for="author">Author</label>
+                <input type="text" id="author" name="author" required>
+              </div>
+              <div class="info" id="book-pages">
+                <label for="pages">Pages</label>
+                <input type="number" id="pages" name="pages">
+              </div>
+              <div id="book-status">
+                <label class="switch">
+                  <input type="checkbox" id="isRead" name="isRead" value="true">
+                  <span class="slider round"></span>
+                </label>
+                <label for="isRead">Have you read this book?</label>
+              </div>
+              <div class="info" id="form-submit">
+                <button id="submitBtn" type="submit">Add</button>
+                <button id="closeForm">Close</button>
+              </div>
+          </form>
+        </div>
+      
     </div>
     <div id="footer"></div>
   </div>
