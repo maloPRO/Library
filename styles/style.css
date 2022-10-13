@@ -86,7 +86,7 @@
 }
 .books {
   display: grid;
-  grid-template: repeat(4, 1fr) / 1fr;
+  grid-template: repeat(5, 1fr) / 1fr;
   padding: 20px;
   color: #fff;
   font-family: 'Ubuntu', sans-serif;
@@ -108,6 +108,7 @@
   background-color: rgb(236, 228, 228);
   padding: 1rem;
   font-family: 'Ubuntu', sans-serif;
+  border-radius: 3px;
 
 }
 form {  
@@ -159,14 +160,24 @@ h2, h4 {
 }
 #submitBtn {
   background-color: rgb(97, 174, 236);
+  height: 50%;
   border: none;
   border-radius: 5px;
   color: #fff;
 }
 #closeForm {
   background-color: rgb(212, 84, 84);
+  height: 50%;
   border: none;
   border-radius: 5px;
+  color: #fff;
+}
+.deleteBtn {
+  font-size: 16px;
+  font-weight: 900;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(180, 81, 81);
   color: #fff;
 }
 #footer {

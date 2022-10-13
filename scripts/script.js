@@ -53,6 +53,10 @@ function displayBook () {
             status.textContent = 'Read: NO';
         }
 
+        const deleteBtn = document.createElement('button');
+        deleteBtn.setAttribute('class', 'deleteBtn');
+        deleteBtn.textContent = 'Delete';
+        bookInfo.appendChild(deleteBtn);
 
         const shelf = document.querySelector('#shelf').appendChild(bookInfo);
 
@@ -82,3 +86,11 @@ document.getElementById('addBook').addEventListener('click', displayForm);
 document.getElementById('closeForm').addEventListener('click', closeForm);
 document.getElementById('submitBtn').addEventListener('click', addBookToLibrary);
 document.getElementById('submitBtn').addEventListener('click', displayBook);
+
+//delete book
+function deleteBook () {
+    const deleteBtn = document.getElementById('deleteBtn');
+    deleteBtn.parentElement.remove()
+};
+
+console.log(myLibrary)
