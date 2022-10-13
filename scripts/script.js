@@ -23,23 +23,38 @@ function displayBook () {
     for (const book of myLibrary) {
         const bookInfo = document.createElement('div');
         bookInfo.setAttribute('class', 'books');
-        const shelf = document.querySelector('#shelf').appendChild(bookInfo);
+        
 
         const title = document.createElement('div');
         bookInfo.appendChild(title)
-        title.textContent = 'Title: '+ book.title;
+        if (book.title === '') {
+            alert('Enter book title');
+        } else title.textContent = 'Title: '+ book.title;
 
         const author = document.createElement('div');
         bookInfo.appendChild(author)
-        author.textContent = 'Author: ' + book.author;
+        if (book.author === '') {
+            alert ("Enter author's name");
+        } else author.textContent = 'Author: ' + book.author;
 
         const pages = document.createElement('div');
         bookInfo.appendChild(pages)
-        pages.textContent = 'Pages: ' + book.pages;
+        if (book.pages === '') {
+            alert("Enter number of pages")
+        } else pages.textContent = 'Pages: ' + book.pages;
 
         const status = document.createElement('div');
-        bookInfo.appendChild(status)
-        status.textContent = 'Status: ' + book.status;
+        const checkbx = document.getElementById('isRead');
+        bookInfo.appendChild(status);
+
+        if (checkbx.checked == true) {
+            status.textContent = 'Read: Yes';
+        } else {
+            status.textContent = 'Read: NO';
+        }
+
+
+        const shelf = document.querySelector('#shelf').appendChild(bookInfo);
 
         
     }
@@ -60,6 +75,7 @@ displayForm = () => {
 
 closeForm = () => {
     document.getElementById('form-container').style.display = 'none';
+    form.reset();
 }
 
 document.getElementById('addBook').addEventListener('click', displayForm);

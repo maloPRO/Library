@@ -78,8 +78,8 @@
   grid-row: 1/2;
   grid-column: 1/4;
   display: grid;
-  gap: 10px;
-  grid-template: 1fr/ repeat(5, minmax(150px, 0.20fr));
+  gap: 15px;
+  grid-template: 1fr 1fr/ repeat(auto-fit, minmax(200px, 0.25fr));
   padding: 20px;
   border-radius: 10px;
 }
@@ -90,9 +90,10 @@
   color: #fff;
   font-family: 'Ubuntu', sans-serif;
   font-size: 14px;
+  letter-spacing: 1px;
   font-weight: 900;
   outline: 1px solid #999;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(97, 174, 236, 0.2);
   border-radius: 5px;
   height: 70%;
   
