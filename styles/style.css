@@ -83,6 +83,7 @@
   grid-template: 1fr 1fr/ repeat(auto-fit, minmax(200px, 0.20fr));
   padding: 20px;
   border-radius: 10px;
+  overflow: hidden;
 }
 .books {
   display: grid;
@@ -179,6 +180,11 @@ h2, h4 {
   border-radius: 5px;
   background-color: rgb(180, 81, 81);
   color: #fff;
+}
+.deleteBtn:hover {
+  cursor: pointer;
+  transform: scale(0.98);
+  background-color: rgb(223, 20, 20);
 }
 #footer {
 

@@ -18,7 +18,6 @@ function addBookToLibrary () {
     myLibrary.push(book);
 
 }
-
 function displayBook () {
     for (const book of myLibrary) {
         const bookInfo = document.createElement('div');
@@ -26,7 +25,7 @@ function displayBook () {
         
 
         const title = document.createElement('div');
-        bookInfo.appendChild(title)
+        bookInfo.appendChild(title);
         if (book.title === '') {
             alert('Enter book title');
         } else title.textContent = 'Title: '+ book.title;
@@ -82,15 +81,30 @@ closeForm = () => {
     form.reset();
 }
 
+
+deleteBook = () => {
+    bookArr = [];
+    var books = document.querySelectorAll('.books');
+    var deleteBtns = document.querySelectorAll('.books :nth-child(5)')
+    for (const book of books) {
+        for (const deleteBtn of deleteBtns) {
+            deleteBtn.addEventListener('click', () => {
+                deleteBtn.parentElement.remove();
+            })
+        }
+        
+    }
+    console.log(bookArr[0]);
+
+}
+
+
+
 document.getElementById('addBook').addEventListener('click', displayForm);
 document.getElementById('closeForm').addEventListener('click', closeForm);
 document.getElementById('submitBtn').addEventListener('click', addBookToLibrary);
 document.getElementById('submitBtn').addEventListener('click', displayBook);
+document.getElementById('submitBtn').addEventListener('click', deleteBook);
 
-//delete book
-function deleteBook () {
-    const deleteBtn = document.getElementById('deleteBtn');
-    deleteBtn.parentElement.remove()
-};
 
-console.log(myLibrary)
+
