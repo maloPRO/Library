@@ -1,11 +1,14 @@
 let myLibrary = [];
 
-function Book (title,author,pages,isRead) {
-    this.title =  title;
-    this.author = author
-    this.pages = pages;
-    this.isRead = isRead;
+class Book {
+    constructor (title, author, pages, isRead) {
+        this.title =  title;
+        this.author = author
+        this.pages = pages;
+        this.isRead = isRead;
+    }
 }
+
 
 function addBookToLibrary () {
     var title = document.getElementById('title');
@@ -13,7 +16,7 @@ function addBookToLibrary () {
     var pages = document.getElementById('pages');
     var isRead = document.getElementById('isRead');
 
-    var book = new Book(title.value, author.value, pages.value, isRead.value);
+    const book = new Book(title.value, author.value, pages.value, isRead.value);
     
     myLibrary.push(book);
 }
