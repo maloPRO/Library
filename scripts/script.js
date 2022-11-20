@@ -11,6 +11,7 @@ class Book {
 
 
 function addBookToLibrary () {
+
     var title = document.getElementById('title');
     var author = document.getElementById('author');
     var pages = document.getElementById('pages');
@@ -33,22 +34,20 @@ function displayBook () {
         const deleteBtn = document.createElement('button');
         const checkbx = document.getElementById('isRead');
 
-
         bookInfo.setAttribute('class', 'books');
         title.setAttribute('class', 'bookSection');
         author.setAttribute('class', 'bookSection');
         pages.setAttribute('class', 'bookSection');
         status.setAttribute('class', 'bookSection');
         deleteBtn.setAttribute('class', 'deleteBtn');
-        
-        
+         
         bookInfo.appendChild(title);
         bookInfo.appendChild(author);
         bookInfo.appendChild(pages);
         bookInfo.appendChild(status);
         bookInfo.appendChild(deleteBtn);
         shelf.appendChild(bookInfo);
-
+        
         
         if (book.title === '') {
             alert('Enter book title');
