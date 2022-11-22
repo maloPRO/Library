@@ -8,18 +8,18 @@
 }
 
 #container {
-  width: 100vw;
-  height: 100vh;
-  background-image: url('/images/lib.jpg');
+  width: 100vw; 
   background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8));
   background-repeat: none;
   background-size: 100%;
   display: grid;
-  grid-template: 1fr 1fr 6fr/ 1fr;
+  grid-template: .6fr .6fr 6fr/ 1fr;
   
 }
 
 #nav {
+  position: sticky;
+  width: 100%;
   grid-row: 1/2;
   grid-column: 1/2;
   color: #fff;
@@ -51,6 +51,8 @@
 }
 
 #content {
+  width: 100%;
+  min-height: 100vh;
   grid-row: 3/4;
   grid-column: 1/2;
   display: grid;
@@ -61,60 +63,60 @@
 }
 
 #newBook {
+  width: 100%;
+  position: sticky;
   grid-row: 2/3;
   grid-column: 1/2;
   display: grid;
   align-items: center;
   justify-items: center;
 }
-#addBook {
+#newBook button {
   width: 10%;
   height: 50%;
   border-radius: 5px;
   border: none;
   font-family: 'Ubuntu', sans-serif;
   font-size: 1rem;
-  font-weight: 900;
+  font-weight: 700;
   background-color: #fff;
   color: #333;
 }
 
-#addBook:hover {
+#newBook button:hover {
   cursor: pointer;
-  transform: scale(1.01);
+  font-weight: 900;
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #fff;
 }
 
-#shelf {
+#library {
   width: 95%;
   height: 100%;
   grid-row: 1/2;
   grid-column: 1/4;
   display: grid;
   gap: 15px;
-  grid-template: 1fr 1fr/ repeat(auto-fit, minmax(200px, 0.20fr));
+  grid-template: repeat(auto-fit, minmax(10rem, 0.4fr)) / repeat(auto-fit, minmax(10rem, 0.20fr));
   padding: 20px;
   border-radius: 10px;
-}
+  grid-auto-flow: row;
 
+}
 .books {
   display: grid;
-  grid-template: repeat(5, 1fr) / 1fr;
-  padding: 20px;
-  color: #fff;
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 13px;
-  letter-spacing: 1px;
-  font-weight: 900;
-  outline: 1px solid #999;
-  background-color: rgba(255,255,255,0.23);
-  border-radius: 5px;
-  height: 95%;
-  
+  padding: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-size: .9rem;
+  color: #333;
+  background-color: #fffada;
 }
 
 .bookSection {
   padding: 2px;
 }
+
 
 #form-container {
   position: absolute;
