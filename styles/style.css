@@ -69,7 +69,6 @@
 
 #newBook {
   width: 100%;
-  position: sticky;
   grid-row: 2/3;
   grid-column: 1/2;
   display: grid;
@@ -116,8 +115,9 @@
   font-size: .9rem;
   font-weight: 500;
   color: #444;
-  background-color: #fffada;
+  background-color: #fff;
   box-shadow: 5px 5px 5px #222;
+  margin: 5px;
   
 }
 
