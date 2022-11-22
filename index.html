@@ -18,23 +18,23 @@
         <div id="trends"><a href="#">Collections</a></div>
       </div>
     </div> 
-    <div id="newBook"><button id="addBook">+ New Book</button></div>
+    <div id="newBook"><button id="newBookBtn">+ New Book</button></div>
     <div id="content"> 
-      <div id="shelf"></div>
+      <div id="library"></div>
         <div id="form-container">
           <h2 id="form-title">Add book to personal Library </h2>
           <form id="myForm" name="myForm">
               <div class="info" id="book-title">
                 <label for="title">Title</label>
-                <input type="text" id="title" name="title" minlength="0" maxlength="30">
+                <input type="text" id="title" name="title" minlength="0" maxlength="30" required >
               </div>
               <div class="info" id="book-author">
                 <label for="author">Author</label>
-                <input type="text" id="author" name="author" minlength="0" maxlength="30">
+                <input type="text" id="author" name="author" minlength="0" maxlength="30" required>
               </div>
               <div class="info" id="book-pages">
                 <label for="pages">Pages</label>
-                <input type="number" id="pages" name="pages" max="2000">
+                <input type="number" id="pages" name="pages" maxlength="4" required>
               </div>
               <div id="book-status">
                 <label class="switch">
@@ -45,7 +45,7 @@
               </div>
               <div class="info" id="form-submit">
                 <button id="submitBtn" type="submit">Add</button>
-                <button id="closeForm">Close</button>
+                <button id="closeForm" type="button">Close</button>
               </div>
           </form>
         </div>
