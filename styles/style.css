@@ -308,16 +308,24 @@ input:checked + .slider:before {
   #logo {
     font-size: 1rem;
   }
+  #nav {
+    grid-template: 1fr/ 2fr 1fr;
+  }
   #nav-right {
     font-size: .8rem;
   }
   #nav-right div {
     margin-right: 3px;
   }
+  #newBook {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
   #newBook button {
-    width: 30%;
+    width: 100%;
+    padding: 5px;
     font-size: .8rem;
-
   }
   form {
     width: 220px;
