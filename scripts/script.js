@@ -60,7 +60,7 @@ const displayBook = () => {
   bookContainer.appendChild(bookInfo);
 
   bookTitle.textContent = 'Title: ' + titleInput.value;
-  bookAuthor.textContent = 'Author ' + authorInput.value;
+  bookAuthor.textContent = 'Author: ' + authorInput.value;
   bookPages.textContent = 'Pages: ' + pagesInput.value;
   deleteBtn.textContent = 'Delete';
   

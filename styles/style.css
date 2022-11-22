@@ -24,11 +24,12 @@
   grid-column: 1/2;
   color: #fff;
   display: grid;
-  grid-template: 1fr/ 4fr 1fr;
+  grid-template: 1fr/ 4fr .8fr;
   align-items: center;
   justify-content: center;
   background-color: rgba(255,255,255,0.2);
   padding-left: 20px;
+  padding-right: 20px;
   border-bottom: 1px solid #999;
 }
 
@@ -40,6 +41,8 @@
 
 #nav-right {
   display: grid;
+  align-items: center;
+  justify-items: center;
   grid-template: 1fr / repeat(2, 1fr);
   font-weight: 900;
 }
@@ -49,7 +52,9 @@
   color: #fff;
   font-family: 'Ubuntu', sans-serif;
 }
-
+#nav-right div a:hover {
+  color: #be1c52;
+}
 #content {
   width: 100%;
   min-height: 100vh;
@@ -109,9 +114,13 @@
   padding: 10px;
   font-family: 'Roboto', sans-serif;
   font-size: .9rem;
-  color: #333;
+  font-weight: 500;
+  color: #444;
   background-color: #fffada;
+  box-shadow: 5px 5px 5px #222;
+  
 }
+
 
 .bookSection {
   padding: 2px;
@@ -203,21 +212,31 @@ h2, h4 {
   color: #fff;
 }
 
-.deleteBtn {
-  font-size: 16px;
+.deleteBook {
+  font-size: 1rem;
   font-weight: 900;
   border: none;
   border-radius: 5px;
   background-color: rgb(180, 81, 81);
   color: #fff;
+  height: 90%;
 }
 
-.deleteBtn:hover {
+.deleteBook:hover {
   cursor: pointer;
   transform: scale(0.98);
-  background-color: rgb(223, 20, 20);
+  background-color: rgb(121, 26, 26);
 }
-
+#submitBtn:hover {
+  cursor: pointer;
+  background-color: rgb(13, 58, 95);
+  outline: 1px solid rgb(97, 174, 236);;
+}
+#closeForm:hover {
+  cursor: pointer;
+  background-color: rgb(121, 26, 26);
+  outline: 1px solid rgb(212, 84, 84);
+}
 #footer {
 
 }
@@ -263,7 +282,7 @@ h2, h4 {
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #1cbe65;
 }
 
 input:focus + .slider {
@@ -283,4 +302,38 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+@media only screen and (max-width: 700px) {
+  #logo {
+    font-size: 1rem;
+  }
+  #nav-right {
+    font-size: .8rem;
+  }
+  #nav-right div {
+    margin-right: 3px;
+  }
+  #newBook button {
+    width: 30%;
+    font-size: .8rem;
+
+  }
+  form {
+    width: 220px;
+    height: 220px;
+  }
+  #form-title {
+    font-size: 1rem;
+  }
+  label {
+    font-size: .8rem;
+  }
+  #form-submit button {
+    font-size: .6rem;
+  }
+  #library {
+    justify-content: center;
+    grid-template: repeat(auto-fit, minmax(2rem, .4fr)) / repeat(auto-fit, minmax(9rem, .8fr));
+  }
 }
