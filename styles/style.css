@@ -345,7 +345,6 @@ input:checked + .slider:before {
     align-items: center;
   }
   #newBook button {
-    width: 50%;
     padding: 5px;
     font-size: .8rem;
   }
@@ -363,7 +362,6 @@ input:checked + .slider:before {
     font-size: .6rem;
   }
   #library {
-    justify-content: center;
-    grid-template: repeat(auto-fit, minmax(2rem, .4fr)) / repeat(auto-fit, minmax(9rem, .8fr));
+    gap: 20px;
   }
 }
