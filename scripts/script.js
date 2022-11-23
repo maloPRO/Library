@@ -49,8 +49,7 @@ const displayBook = () => {
   bookPages.setAttribute('class', 'pages');
   bookInfo.appendChild(bookPages);
 
-  const bookStatus = document.createElement('div');
-  bookStatus.setAttribute('class', 'status');
+  const bookStatus = document.createElement('button');
   bookInfo.appendChild(bookStatus);
 
   const deleteBtn = document.createElement('button');
@@ -65,10 +64,24 @@ const displayBook = () => {
   deleteBtn.textContent = 'Delete';
   
   if (readStatus.checked == true) {
-    bookStatus.textContent = 'Status: Read';
+    bookStatus.textContent = 'Read';
+    bookStatus.classList.add('read');
   } else {
-   bookStatus.textContent = 'Status: Not read';
-  }  
+   bookStatus.textContent = 'Not read';
+   bookStatus.classList.add('notRead');
+  } 
+  
+  bookStatus.addEventListener('click', () => {
+    if (bookStatus.textContent === 'Read') {
+      bookStatus.textContent = 'Not Read';
+      bookStatus.classList.remove('read');
+      bookStatus.classList.add('notRead');
+    } else if (bookStatus.textContent === 'Not read') {
+      bookStatus.textContent = 'Read';
+      bookStatus.classList.remove('notRead');
+      bookStatus.classList.add('read');
+    }
+  })
   console.log(myBooks);
 
   deleteBtn.addEventListener('click', () => {
