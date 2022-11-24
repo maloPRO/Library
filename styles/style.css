@@ -96,7 +96,7 @@
 .books {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
   padding: 20px;
   font-family: 'Roboto', sans-serif;
   font-size: .9rem;
@@ -117,7 +117,7 @@
   border: none;
   border-radius: 5px;
   height: 90%;
-  color: #fff;
+  color: #fffada;
 }
 .read {
   background-color: #3be286;
@@ -156,7 +156,7 @@
   padding: 2px;
 }
 
-
+/* Form */
 #form-container {
   position: absolute;
   top: 50%;
@@ -259,8 +259,11 @@ h2, h4 {
   background-color: rgb(121, 26, 26);
   outline: 1px solid rgb(212, 84, 84);
 }
-#footer {
-
+input:focus:invalid {
+  outline: 1px solid red;
+}
+input:valid:focus {
+  outline: 1px solid #1cbe65;
 }
 
 .switch {

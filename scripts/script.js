@@ -14,15 +14,15 @@ class Book {
     this.isRead = isRead;
   }
 }
-
 const handleForm = (event) => {
   displayBook()
   closeForm()
   event.preventDefault();
 }
 
-
-const displayForm = () => document.getElementById('form-container').style.display = 'block';  
+const displayForm = () => {
+  document.getElementById('form-container').style.display = 'block';
+}   
 
 const closeForm = () => {
   document.getElementById('form-container').style.display = 'none';
@@ -82,16 +82,44 @@ const displayBook = () => {
       bookStatus.classList.add('read');
     }
   })
-  console.log(myBooks);
-
+  
   deleteBtn.addEventListener('click', () => {
     deleteBtn.parentElement.remove();
     
   })
 }
 
+// Form validation
+  const titleError = document.querySelector("#title + span.error");
+  const authorError = document.querySelector("#author + span.error");
+  const pagesError = document.querySelector("#pages + span.error")
 
-form.addEventListener('submit', handleForm);
+  titleInput.addEventListener("input", (event) => {
+    if (title.validity.valid) {
+      titleError.textContent = '';
+      titleError.className = 'error';
+    } else {
+      showError();
+    }
+  })
+
+
+
+form.addEventListener('submit', (event) => {
+  if (!titleInput.validity.valid) {
+    showError();
+  }
+
+  event.preventDefault();
+});
+
+const showError = () => {
+  if (titleInput.validity.valueMissing) {
+    titleError.textContent = 'Please Enter a title'
+  } else if (titleInput.validity.typeMismatch) {
+    titleError.textContent = 'has to be text'
+  }
+}
 document.getElementById('newBookBtn').addEventListener('click', displayForm);
 document.getElementById('closeForm').addEventListener('click', closeForm);
 
