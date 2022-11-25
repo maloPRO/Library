@@ -82,7 +82,12 @@ const displayBook = ({title, author, pages, isRead}) => {
   })
   
   deleteBtn.addEventListener('click', function () {
-    this.parentElement.remove(); 
+    this.parentElement.remove();
+    myBooks.forEach((book, index) => {
+      myBooks.splice(index, 1)
+      localStorage.setItem('books', JSON.stringify(myBooks));
+
+    })
   })
 }
 myBooks.forEach(displayBook)
