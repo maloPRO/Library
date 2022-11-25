@@ -31,8 +31,11 @@ const closeForm = () => {
 
 
 const displayBook = () => {
-  const book = new Book(pagesInput.value, authorInput.value, pagesInput.value, readStatus.value);
+  const book = new Book(titleInput.value, authorInput.value, pagesInput.value, readStatus.value);
   myBooks.push(book);
+
+  let newBookList = JSON.stringify(Object.assign({}, myBooks))
+  localStorage.setItem('storedBooks', newBookList);
 
   const bookInfo = document.createElement('div');
   bookInfo.setAttribute('class', 'books');
@@ -89,38 +92,13 @@ const displayBook = () => {
   })
 }
 
-// Form validation
-  const titleError = document.querySelector("#title + span.error");
-  const authorError = document.querySelector("#author + span.error");
-  const pagesError = document.querySelector("#pages + span.error")
-
-  titleInput.addEventListener("input", (event) => {
-    if (title.validity.valid) {
-      titleError.textContent = '';
-      titleError.className = 'error';
-    } else {
-      showError();
-    }
-  })
-
-
-
-form.addEventListener('submit', (event) => {
-  if (!titleInput.validity.valid) {
-    showError();
-  }
-
-  event.preventDefault();
-});
-
-const showError = () => {
-  if (titleInput.validity.valueMissing) {
-    titleError.textContent = 'Please Enter a title'
-  } else if (titleInput.validity.typeMismatch) {
-    titleError.textContent = 'has to be text'
-  }
+function retrieveBook () {
+  let storedBookObj = JSON.parse(localStorage.getItem('storedBooks'));
+  console.log(Object.keys(storedBookObj).value)
+  
 }
+
+form.addEventListener('submit', handleForm);
+form.addEventListener('submit', retrieveBook)
 document.getElementById('newBookBtn').addEventListener('click', displayForm);
 document.getElementById('closeForm').addEventListener('click', closeForm);
-
-
