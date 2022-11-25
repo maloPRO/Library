@@ -1,4 +1,4 @@
-const myBooks = [];
+const myBooks = JSON.parse(localStorage.getItem('books')) || [];
 const bookContainer = document.getElementById('library');
 const titleInput = document.getElementById('title');
 const authorInput = document.getElementById('author');
@@ -15,9 +15,10 @@ class Book {
   }
 }
 const handleForm = (event) => {
+  newBook()
   displayBook()
   closeForm()
-  event.preventDefault();
+  event.preventDefault(); 
 }
 
 const displayForm = () => {
@@ -29,49 +30,43 @@ const closeForm = () => {
   form.reset();
 }
 
-
-const displayBook = () => {
+const newBook = () => {
   const book = new Book(titleInput.value, authorInput.value, pagesInput.value, readStatus.value);
   myBooks.push(book);
+  localStorage.setItem('books', JSON.stringify(myBooks));
 
-  let newBookList = JSON.stringify(Object.assign({}, myBooks))
-  localStorage.setItem('storedBooks', newBookList);
+}
+const displayBook = ({title, author, pages, isRead}) => {
 
   const bookInfo = document.createElement('div');
-  bookInfo.setAttribute('class', 'books');
-
   const bookTitle = document.createElement('div');
-  bookTitle.setAttribute('class', 'title');
-  bookInfo.appendChild(bookTitle);
-
   const bookAuthor = document.createElement('div');
-  bookAuthor.setAttribute('class', 'author');
-  bookInfo.appendChild(bookAuthor);
-
   const bookPages = document.createElement('div');
-  bookPages.setAttribute('class', 'pages');
-  bookInfo.appendChild(bookPages);
-
   const bookStatus = document.createElement('button');
-  bookInfo.appendChild(bookStatus);
-
   const deleteBtn = document.createElement('button');
-  deleteBtn.setAttribute('class', 'deleteBook');
-  bookInfo.appendChild(deleteBtn);
 
+  bookInfo.setAttribute('class', 'books');
+  bookTitle.setAttribute('class', 'title');
+  bookAuthor.setAttribute('class', 'author');
+  bookPages.setAttribute('class', 'pages');
+  deleteBtn.setAttribute('class', 'deleteBook');
+
+  bookInfo.append(bookTitle, bookAuthor, bookPages, bookStatus, deleteBtn);
   bookContainer.appendChild(bookInfo);
 
-  bookTitle.textContent = 'Title: ' + titleInput.value;
-  bookAuthor.textContent = 'Author: ' + authorInput.value;
-  bookPages.textContent = 'Pages: ' + pagesInput.value;
+  bookTitle.textContent = 'Title: ' + title;
+  bookAuthor.textContent = 'Author: ' + author;
+  bookPages.textContent = 'Pages: ' + pages;
   deleteBtn.textContent = 'Delete';
   
-  if (readStatus.checked == true) {
+  if (isRead == 'yes') {
     bookStatus.textContent = 'Read';
     bookStatus.classList.add('read');
+    bookStatus.classList.add('status');
   } else {
    bookStatus.textContent = 'Not read';
    bookStatus.classList.add('notRead');
+   bookStatus.classList.add('status');
   } 
   
   bookStatus.addEventListener('click', () => {
@@ -86,19 +81,14 @@ const displayBook = () => {
     }
   })
   
-  deleteBtn.addEventListener('click', () => {
-    deleteBtn.parentElement.remove();
-    
+  deleteBtn.addEventListener('click', function () {
+    this.parentElement.remove(); 
   })
 }
-
-function retrieveBook () {
-  let storedBookObj = JSON.parse(localStorage.getItem('storedBooks'));
-  console.log(Object.keys(storedBookObj).value)
-  
-}
+myBooks.forEach(displayBook)
 
 form.addEventListener('submit', handleForm);
-form.addEventListener('submit', retrieveBook)
 document.getElementById('newBookBtn').addEventListener('click', displayForm);
 document.getElementById('closeForm').addEventListener('click', closeForm);
+
+
