@@ -54,22 +54,21 @@ const displayBook = ({title, author, pages, isRead}) => {
   bookPages.textContent = 'Pages: ' + pages;
   deleteBtn.textContent = 'Delete';
   
-  if (isRead == 'yes') {
+  if (isRead === 'yes') {
     bookStatus.textContent = 'Read';
-    bookStatus.classList.add('read');
-    bookStatus.classList.add('status');
+    bookStatus.setAttribute('class', 'read');
   } else {
    bookStatus.textContent = 'Not read';
-   bookStatus.classList.add('notRead');
-   bookStatus.classList.add('status');
-  } 
+   bookStatus.setAttribute('class', 'notRead');
+   
+  }
   
   bookStatus.addEventListener('click', () => {
-    if (bookStatus.textContent === 'Read') {
+    if (bookStatus.className == 'read') {
       bookStatus.textContent = 'Not Read';
       bookStatus.classList.remove('read');
       bookStatus.classList.add('notRead');
-    } else if (bookStatus.textContent === 'Not read') {
+    } else if (bookStatus.className === 'notRead') {
       bookStatus.textContent = 'Read';
       bookStatus.classList.remove('notRead');
       bookStatus.classList.add('read');
