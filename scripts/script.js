@@ -14,12 +14,6 @@ class Book {
     this.isRead = isRead;
   }
 }
-const handleForm = (event) => {
-  newBook()
-  displayBook()
-  closeForm()
-  event.preventDefault(); 
-}
 
 const displayForm = () => {
   document.getElementById('form-container').style.display = 'block';
@@ -30,11 +24,12 @@ const closeForm = () => {
   form.reset();
 }
 
-const newBook = () => {
+const newBook = (title, author, pages, isRead) => {
   const book = new Book(titleInput.value, authorInput.value, pagesInput.value, readStatus.value);
   myBooks.push(book);
   localStorage.setItem('books', JSON.stringify(myBooks));
 
+  return { title, author, pages, isRead }
 }
 const displayBook = ({title, author, pages, isRead}) => {
 
@@ -90,8 +85,15 @@ const displayBook = ({title, author, pages, isRead}) => {
     })
   })
 }
-myBooks.forEach(displayBook)
+const handleForm = (event) => {
+  event.preventDefault(); 
+  const book = newBook(titleInput.value, authorInput.value, pagesInput.value, readStatus.value)
+  displayBook(book)
+  closeForm()
+  
+}
 
+myBooks.forEach(displayBook)
 form.addEventListener('submit', handleForm);
 document.getElementById('newBookBtn').addEventListener('click', displayForm);
 document.getElementById('closeForm').addEventListener('click', closeForm);
