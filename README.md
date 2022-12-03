@@ -6,3 +6,5 @@ This project is part of the Odin Project's Javascript curriculum.
 - CSS
 - JavaScript
 - Git
+### Live Preview
+[Library App](https://malopro.github.io/Library/)
